@@ -60,7 +60,7 @@ offset_right = 733.0
 offset_bottom = 607.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_vmo1c")
-text = "Start Game"
+text = "Empezar juego"
 
 [node name="Options" type="Button" parent="."]
 offset_left = 808.0
@@ -69,7 +69,7 @@ offset_right = 1109.0
 offset_bottom = 607.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_vmo1c")
-text = "Options"
+text = "Opciones"
 
 [node name="Back" type="Button" parent="."]
 offset_left = 48.0
@@ -78,7 +78,7 @@ offset_right = 349.0
 offset_bottom = 607.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_vmo1c")
-text = "BACK"
+text = "Atras"
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7806o")
