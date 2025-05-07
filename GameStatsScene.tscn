@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw0t6fufnwgv"]
+
+[ext_resource type="Script" uid="uid://its0an0y8yqf" path="res://GameStatsScene.gd" id="1_k13uy"]
+[ext_resource type="FontFile" uid="uid://bn62p85udx8va" path="res://Angel wish.ttf" id="2_j7mrv"]
+[ext_resource type="PackedScene" uid="uid://riu12himw1tm" path="res://options_screen.tscn" id="2_k13uy"]
+[ext_resource type="AudioStream" uid="uid://7cf2yn8xx7ue" path="res://MenuClick.ogg" id="3_nbntt"]
+[ext_resource type="AudioStream" uid="uid://bbve0abhhyhre" path="res://MenuHover.ogg" id="4_j7mrv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erdiq"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k13uy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 216.0
+offset_top = 40.0
+offset_right = 968.0
+offset_bottom = 512.0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j7mrv")
+theme_override_font_sizes/font_size = 60
+text = "      Estadisticas - Monedas recolectadas"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+vertical_scroll_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_k13uy")]
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 103.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+tooltip_text = "Quit Game"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_erdiq")
+text = "Menu principal"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nbntt")
+bus = &"Sound Effects"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j7mrv")
+bus = &"Sound Effects"
+
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

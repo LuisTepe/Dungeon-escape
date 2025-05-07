@@ -1,0 +1,324 @@
+[gd_scene load_steps=23 format=3 uid="uid://c1fadbjhhtgha"]
+
+[ext_resource type="Script" uid="uid://c2pnvsl1s8ubf" path="res://enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://bl5tipnq6onh6" path="res://tiles/Enemy.png" id="2_iifgy"]
+[ext_resource type="Texture2D" uid="uid://cakomknin21mi" path="res://Assets/light.png" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://v1sks85hny53" path="res://killzone.tscn" id="4_5uy6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ltt"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxifv"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwjut"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0g06"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar8e5"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doop2"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hcft"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnovl"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmwgi"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2u8i"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otto8"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q82m"]
+atlas = ExtResource("2_iifgy")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uy6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ltt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxifv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwjut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0g06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar8e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doop2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hcft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnovl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmwgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2u8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otto8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q82m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4w8v"]
+radius = 7.07107
+
+[node name="enemy" type="Node2D"]
+visibility_layer = 2
+script = ExtResource("1_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_5uy6h")
+autoplay = "default"
+frame_progress = 0.644695
+
+[node name="Lighting system" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.500005, -3.5)
+scale = Vector2(0.195871, 0.193638)
+color = Color(0.917647, 0.909804, 0.188235, 1)
+energy = 3.5
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("3_4ra3w")
+texture_scale = 1.75
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.359069, 0.359069, 0.359069, 1)
+energy = 0.71
+blend_mode = 2
+max_distance = 150.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.775063, 0.775063, 0.775063, 1)
+
+[node name="Raycast for movement" type="Node" parent="."]
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(12, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-12, 0)
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -12)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 13)
+
+[node name="killzone" parent="." instance=ExtResource("4_5uy6h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("CircleShape2D_c4w8v")
+
+[node name="Ray1" type="RayCast2D" parent="killzone"]
+target_position = Vector2(150, 0)
+collision_mask = 2
+
+[node name="Ray2" type="RayCast2D" parent="killzone"]
+target_position = Vector2(141, 51)
+collision_mask = 2
+
+[node name="Ray3" type="RayCast2D" parent="killzone"]
+target_position = Vector2(115, 96)
+collision_mask = 2
+
+[node name="Ray4" type="RayCast2D" parent="killzone"]
+target_position = Vector2(75, 130)
+collision_mask = 2
+
+[node name="Ray5" type="RayCast2D" parent="killzone"]
+target_position = Vector2(26, 148)
+collision_mask = 2
+
+[node name="Ray6" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-26, 148)
+collision_mask = 2
+
+[node name="Ray7" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-75, 130)
+collision_mask = 2
+
+[node name="Ray8" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-115, 96)
+collision_mask = 2
+
+[node name="Ray9" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-141, 51)
+collision_mask = 2
+
+[node name="Ray10" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-150, 0)
+collision_mask = 2
+
+[node name="Ray11" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-141, -51)
+collision_mask = 2
+
+[node name="Ray12" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-115, -96)
+collision_mask = 2
+
+[node name="Ray13" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-75, -130)
+collision_mask = 2
+
+[node name="Ray14" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-26, -148)
+collision_mask = 2
+
+[node name="Ray15" type="RayCast2D" parent="killzone"]
+target_position = Vector2(26, -148)
+collision_mask = 2
+
+[node name="Ray16" type="RayCast2D" parent="killzone"]
+target_position = Vector2(75, -130)
+collision_mask = 2
+
+[node name="Ray17" type="RayCast2D" parent="killzone"]
+target_position = Vector2(115, -96)
+collision_mask = 2
+
+[node name="Ray18" type="RayCast2D" parent="killzone"]
+target_position = Vector2(141, -51)
+collision_mask = 2
+
+[node name="Ray19" type="RayCast2D" parent="killzone"]
+target_position = Vector2(0, -150)
+collision_mask = 2
+
+[node name="Ray20" type="RayCast2D" parent="killzone"]
+target_position = Vector2(0, 150)
+collision_mask = 2
+
+[node name="Ray21" type="RayCast2D" parent="killzone"]
+target_position = Vector2(137, 26)
+collision_mask = 2
+
+[node name="Ray22" type="RayCast2D" parent="killzone"]
+target_position = Vector2(122, 71)
+collision_mask = 2
+
+[node name="Ray23" type="RayCast2D" parent="killzone"]
+target_position = Vector2(91, 109)
+collision_mask = 2
+
+[node name="Ray24" type="RayCast2D" parent="killzone"]
+target_position = Vector2(49, 133)
+collision_mask = 2
+
+[node name="Ray25" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-50, 135)
+collision_mask = 2
+
+[node name="Ray26" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-89, 108)
+collision_mask = 2
+
+[node name="Ray27" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-123, 71)
+collision_mask = 2
+
+[node name="Ray28" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-139, 26)
+collision_mask = 2
+
+[node name="Ray29" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-140, -24)
+collision_mask = 2
+
+[node name="Ray30" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-125, -72)
+collision_mask = 2
+
+[node name="Ray31" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-92, -109)
+collision_mask = 2
+
+[node name="Ray32" type="RayCast2D" parent="killzone"]
+target_position = Vector2(-48, -137)
+collision_mask = 2
+
+[node name="Ray33" type="RayCast2D" parent="killzone"]
+target_position = Vector2(48, -134)
+collision_mask = 2
+
+[node name="Ray34" type="RayCast2D" parent="killzone"]
+target_position = Vector2(91, -111)
+collision_mask = 2
+
+[node name="Ray35" type="RayCast2D" parent="killzone"]
+target_position = Vector2(123, -72)
+collision_mask = 2
+
+[node name="Ray36" type="RayCast2D" parent="killzone"]
+target_position = Vector2(139, -27)
+collision_mask = 2

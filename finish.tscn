@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://q077a7fay7b1"]
+
+[ext_resource type="Script" uid="uid://dcwojosg4qrj7" path="res://finish.gd" id="1_se5xy"]
+[ext_resource type="AudioStream" uid="uid://7cf2yn8xx7ue" path="res://MenuClick.ogg" id="2_xfp72"]
+[ext_resource type="AudioStream" uid="uid://bbve0abhhyhre" path="res://MenuHover.ogg" id="3_ggktp"]
+[ext_resource type="PackedScene" uid="uid://dac0c8eqr6065" path="res://parallax_background.tscn" id="4_ggktp"]
+[ext_resource type="FontFile" uid="uid://bn62p85udx8va" path="res://Angel wish.ttf" id="5_hd5p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd5p8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vthi"]
+
+[node name="Finish" type="Node2D"]
+script = ExtResource("1_se5xy")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 680.0
+offset_top = 549.0
+offset_right = 961.0
+offset_bottom = 613.0
+size_flags_vertical = 3
+tooltip_text = "Quit Game"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_hd5p8")
+text = "Menu Principal"
+
+[node name="Stats" type="Button" parent="."]
+offset_left = 197.0
+offset_top = 548.0
+offset_right = 478.0
+offset_bottom = 612.0
+size_flags_vertical = 3
+tooltip_text = "Quit Game"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_hd5p8")
+text = "Estadisticas"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xfp72")
+bus = &"Sound Effects"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ggktp")
+bus = &"Sound Effects"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_ggktp")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 23.0
+offset_right = 1153.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = -6
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_hd5p8")
+theme_override_font_sizes/font_size = 119
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7vthi")
+text = "Felicidades!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 298.0
+offset_top = 250.0
+offset_right = 872.0
+offset_bottom = 373.0
+theme_override_fonts/font = ExtResource("5_hd5p8")
+theme_override_font_sizes/font_size = 59
+text = "              GANASTE!!
+GRACIAS POR JUGAR"
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Stats" to="." method="_on_stats_mouse_entered"]
+[connection signal="pressed" from="Stats" to="." method="_on_stats_pressed"]

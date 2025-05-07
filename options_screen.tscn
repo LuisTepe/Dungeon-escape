@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://riu12himw1tm"]
+
+[ext_resource type="Texture2D" uid="uid://cuaduvwgy2utk" path="res://black.png" id="1_666cw"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Black" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(583.25, 328.5)
+scale = Vector2(0.943633, 1.1726)
+texture = ExtResource("1_666cw")

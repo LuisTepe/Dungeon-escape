@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://f23518key2oi"]
+
+[ext_resource type="AudioStream" uid="uid://csoojab5s0nm5" path="res://vg-music-throwing-fists-187332.ogg" id="1_p1osb"]
+
+[node name="bgMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_p1osb")
+autoplay = true
+bus = &"Music"

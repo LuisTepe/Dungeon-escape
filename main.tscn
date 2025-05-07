@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://dieigs7idw2i1"]
+
+[ext_resource type="Script" uid="uid://dgb8fdl6ncl2d" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dac0c8eqr6065" path="res://parallax_background.tscn" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://bn62p85udx8va" path="res://Angel wish.ttf" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://7cf2yn8xx7ue" path="res://MenuClick.ogg" id="4_lquwl"]
+[ext_resource type="AudioStream" uid="uid://bbve0abhhyhre" path="res://MenuHover.ogg" id="5_7mycd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+bg_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lquwl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 370.0
+offset_top = 225.0
+offset_right = 784.0
+offset_bottom = 587.0
+theme_override_constants/separation = 30
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Start Game"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_0xm2m")
+text = "Empezar"
+
+[node name="Option" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Settings"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2yge")
+text = "Opciones"
+
+[node name="About Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Game Rules"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_0xm2m")
+text = "Acerca del juego"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Quit Game"
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+text = "Salir"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1.0
+offset_top = 29.0
+offset_right = 1137.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = -6
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 119
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0xm2m")
+text = "SHADOW WALKER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lquwl")
+bus = &"Sound Effects"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7mycd")
+bus = &"Sound Effects"
+
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Option" to="." method="_on_option_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/About Game" to="." method="_on_about_game_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/About Game" to="." method="_on_about_game_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
